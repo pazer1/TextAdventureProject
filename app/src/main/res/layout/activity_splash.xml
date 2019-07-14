@@ -67,7 +67,13 @@
                 android:layout_gravity="bottom"
                 android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-                app:layout_collapseMode="pin" />
+                app:layout_collapseMode="pin" >
+                <TextView
+                    android:id="@+id/toolbar_text"
+                    android:textColor="@android:color/holo_blue_bright"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </androidx.appcompat.widget.Toolbar>
 
         </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -89,24 +95,8 @@
                     android:background="@drawable/splash_gradient"
                     android:layout_width="match_parent"
                     android:layout_height="1500dp">
-                    <ImageView
-                        android:scaleType="fitStart"
-                        android:src="@drawable/splash_vector_drawable"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent" />
 
 
-
-                    <!--<TextView-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:text="Info"-->
-                        <!--android:textAppearance="@style/TextAppearance.AppCompat.Title" />-->
-
-                    <!--<TextView-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="wrap_content"-->
-                        <!--android:text="@string/cheese_ipsum" />-->
 
                 </RelativeLayout>
 
@@ -115,9 +105,6 @@
                     android:layout_width="match_parent"
                     android:background="@drawable/splash_gradient1"
                     android:layout_height="1000dp">
-
-
-
                 </LinearLayout>
 
                 <LinearLayout
@@ -125,9 +112,33 @@
                     android:background="@drawable/splash_gradient2"
                     android:layout_width="match_parent"
                     android:layout_height="1000dp">
-
                 </LinearLayout>
 
+            <LinearLayout
+                style="@style/Widget.CardContent"
+                android:background="@drawable/splash_gradient3"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp">
+            </LinearLayout>
+            <LinearLayout
+                style="@style/Widget.CardContent"
+                android:background="@drawable/splash_gradient4"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp">
+            </LinearLayout>
+            <LinearLayout
+                style="@style/Widget.CardContent"
+                android:background="@drawable/splash_gradient5"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp">
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/Widget.CardContent"
+                android:background="@drawable/splash_gradient6"
+                android:layout_width="match_parent"
+                android:layout_height="1000dp">
+            </LinearLayout>
 
         </LinearLayout>
 

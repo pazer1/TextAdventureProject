@@ -15,6 +15,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -29,6 +30,7 @@ public class SplashActivity extends AppCompatActivity  {
     CoordinatorLayout coordinatorLayout;
     Toolbar toolbar;
     NestedScrollView nestedScrollView;
+    TextView toolbar_text;
     boolean isUp = false;
 
     @Override
@@ -39,6 +41,7 @@ public class SplashActivity extends AppCompatActivity  {
         backdrop = findViewById(R.id.backdrop);
         coordinatorLayout = findViewById(R.id.main_content);
         toolbar = findViewById(R.id.splash_toolbar);
+        toolbar_text = findViewById(R.id.toolbar_text);
         nestedScrollView = findViewById(R.id.splash_nested);
         nestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
@@ -62,8 +65,13 @@ public class SplashActivity extends AppCompatActivity  {
                 if(state.equals(State.EXPANDED)){
 
                 }else if(state.equals(State.COLLAPSED)){
-                    Log.d("STATE",state+"");
-
+                    Animation anim = AnimationUtils.loadAnimation(SplashActivity.this,R.anim.alpha);
+                    anim.reset();
+                    toolbar_text.setText("나는 너를 바다로 데려갈거야");
+                    toolbar_text.clearAnimation();
+                    toolbar_text.startAnimation(anim);
+                }else if(state.equals(State.IDEL)){
+                    toolbar_text.setText("");
                 }
             }
         };
