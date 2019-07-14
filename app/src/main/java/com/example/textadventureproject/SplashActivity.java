@@ -1,6 +1,7 @@
 package com.example.textadventureproject;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 import android.content.Intent;
 import android.graphics.PixelFormat;
@@ -18,8 +19,8 @@ import com.bumptech.glide.Glide;
 public class SplashActivity extends AppCompatActivity {
 
     Thread splashThread;
-    ImageView splashText,mainSplash;
-    RelativeLayout relativeLayout;
+    ImageView splashText,mainSplash,backdrop;
+    CoordinatorLayout relativeLayout;
 
 
 
@@ -28,10 +29,9 @@ public class SplashActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_splash);
-        relativeLayout = findViewById(R.id.lin_lay);
-        splashText = findViewById(R.id.splash_text);
-        mainSplash = findViewById(R.id.splash);
-        Glide.with(this).load(R.drawable.giphy).into(mainSplash);
+        backdrop = findViewById(R.id.backdrop);
+
+        Glide.with(this).load(R.drawable.giphy).into(backdrop);
         StartAnimation();
 
     }
@@ -42,41 +42,41 @@ public class SplashActivity extends AppCompatActivity {
     private void StartAnimation(){
         Animation anim = AnimationUtils.loadAnimation(this,R.anim.alpha);
         anim.reset();
-        RelativeLayout i = findViewById(R.id.lin_lay);
+        ImageView i = findViewById(R.id.backdrop);
         i.clearAnimation();
         i.startAnimation(anim);
 
         anim = AnimationUtils.loadAnimation(this, R.anim.translate);
         anim.reset();
-        ImageView iv = findViewById(R.id.splash_text);
+        ImageView iv = findViewById(R.id.icon_image);
         iv.clearAnimation();
         iv.startAnimation(anim);
 
         Animation backanim = AnimationUtils.loadAnimation(this,R.anim.background_translate);
         anim.reset();
-        mainSplash.clearAnimation();
-        mainSplash.startAnimation(backanim);
+        backdrop.clearAnimation();
+        backdrop.startAnimation(backanim);
 
-//        splashThread = new Thread(){
-//            @Override
-//            public void run() {
-//                int waited  = 0;
-//                //Splash screen pause time;
-//                while(waited < 6000){
-//                    try {
-//                        sleep(100);
-//                        waited += 100;
-//
-//                    } catch (InterruptedException e) {
-//                        e.printStackTrace();
-//                    }
+        splashThread = new Thread(){
+            @Override
+            public void run() {
+                int waited  = 0;
+                //Splash screen pause time;
+                while(waited < 6000){
+                    try {
+                        sleep(100);
+                        waited += 100;
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
 //                    Intent intent = new Intent(SplashActivity.this,MainActivity.class);
 //                    intent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
 //                    startActivity(intent);
 //                    SplashActivity.this.finish();
-//                }
-//            }
-//        };
-//        splashThread.start();
+                }
+            }
+        };
+        splashThread.start();
     }
 }
