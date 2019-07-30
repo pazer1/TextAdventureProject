@@ -23,6 +23,13 @@ import com.example.textadventureproject.Listener.AppbarLayoutListener;
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 
+/*
+나는 너를 바다로 데려갈거야.
+
+ */
+
+
+
 public class SplashActivity extends AppCompatActivity  {
 
     Thread splashThread;
@@ -43,6 +50,11 @@ public class SplashActivity extends AppCompatActivity  {
         toolbar = findViewById(R.id.splash_toolbar);
         toolbar_text = findViewById(R.id.toolbar_text);
         nestedScrollView = findViewById(R.id.splash_nested);
+
+        Animation animation = AnimationUtils.loadAnimation(this,R.anim.text_rotate);
+        animation.reset();
+
+
         nestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
             @Override
             public void onScrollChange(NestedScrollView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
